@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="#fff">
+    <TextView
+        android:text="城市"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/item_county"
+        android:layout_marginLeft="15dp"
+        android:layout_centerVertical="true"
+        android:textSize="25sp"
+        android:textColor="#000"
+         />
+
+    <Button
+        android:background="@drawable/trash_black"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/delete_b"
+        android:layout_marginRight="15dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="15dp" />
+
+    <TextView
+    android:text="温度"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/item_temp"
+        android:textSize="23sp"
+        android:textColor="#000"
+        android:layout_marginEnd="56dp"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/delete_b" />
+
+    <TextView
+        android:text="街道"
+        android:textColor="#666666"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:id="@+id/street"
+        android:layout_toEndOf="@+id/item_county"
+        android:layout_marginStart="15dp" />
+
+
+</RelativeLayout>
