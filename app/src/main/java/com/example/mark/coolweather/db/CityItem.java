@@ -12,6 +12,7 @@ public class CityItem extends DataSupport {
     String cityTmp;
     String weather_id;
     String street;
+    String remindFlag;
     public void setId(int id){
         this.id=id;
     }
@@ -41,5 +42,11 @@ public class CityItem extends DataSupport {
     }
     public String getStreet(){
         return street;
+    }
+    public void setRemindFlag(String remindFlag){
+        this.remindFlag=remindFlag;
+    }
+    public String getRemindFlag(){
+        return remindFlag;
     }
 }

@@ -22,23 +22,26 @@
         android:layout_height="wrap_content"
         android:id="@+id/comfort_text"
         android:textColor="#fff"
-        android:textSize="15sp"/>
+        android:textSize="15sp"
+        android:layout_margin="10dp"/>
 
     <TextView
         android:text="振哥好帅"
         android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/car_wash_text"
+        android:id="@+id/dress_text"
         android:textColor="#fff"
-        android:textSize="15sp"/>
+        android:textSize="15sp"
+        android:layout_margin="10dp"/>
 
     <TextView
         android:text="振哥好帅"
         android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/sport_text"
+        android:id="@+id/flu_text"
         android:textColor="#fff"
-        android:textSize="15sp"/>
+        android:textSize="15sp"
+        android:layout_margin="10dp"/>
 </LinearLayout>

@@ -12,16 +12,7 @@
         android:textColor="#fff"
         android:textSize="20sp"/>
 
-    <TextView
-        android:text="振哥好帅"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/title_update_time"
-        android:layout_marginRight="10dp"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:textColor="#fff"
-        android:textSize="16sp"/>
+
 
     <TextView
         android:text=""
@@ -30,5 +21,15 @@
         android:id="@+id/street"
         android:layout_centerVertical="true"
         android:layout_marginLeft="15dp"
+        android:textColor="#fff"
         />
+
+    <Button
+        android:id="@+id/setting"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/setting"
+        android:layout_marginRight="15dp"/>
 </RelativeLayout>

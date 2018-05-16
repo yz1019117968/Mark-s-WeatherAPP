@@ -6,7 +6,7 @@
     android:layout_margin="15dp">
 
     <TextView
-        android:text="空气质量"
+        android:text="今日风象"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
@@ -36,13 +36,13 @@
                     android:text="振哥好帅"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/aqi_text"
+                    android:id="@+id/wind_sc"
                     android:layout_gravity="center"
                     android:textColor="#fff"
                     android:textSize="40sp"/>
 
                 <TextView
-                    android:text="AQI指数"
+                    android:text="风力"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView6"
@@ -66,13 +66,13 @@
                     android:text="振哥好帅"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/pm25_text"
+                    android:id="@+id/wind_dir"
                     android:layout_gravity="center"
                     android:textColor="#fff"
                     android:textSize="40sp"/>
 
                 <TextView
-                    android:text="pm2.5指数"
+                    android:text="风向"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView5"

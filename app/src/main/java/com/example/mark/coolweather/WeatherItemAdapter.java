@@ -11,12 +11,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mark.coolweather.db.CityItem;
-import com.example.mark.coolweather.gson.Weather;
 import com.example.mark.coolweather.util.Utility;
 
 import org.litepal.crud.DataSupport;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
