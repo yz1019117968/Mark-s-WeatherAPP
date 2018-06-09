@@ -24,7 +24,7 @@ import com.example.mark.coolweather.util.Utility;
 
 import org.litepal.crud.DataSupport;
 
-public class settingActivity extends AppCompatActivity {
+public class settingActivity extends BaseActivity {
     private Switch switch1;
     private RecyclerView recycler_city;
     private RelativeLayout layout_suggest;

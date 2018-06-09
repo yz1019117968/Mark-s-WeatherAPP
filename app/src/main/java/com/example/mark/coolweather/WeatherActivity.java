@@ -58,7 +58,7 @@ import okhttp3.Response;
  * Created by Mark on 2017/12/13.
  */
 
-public class WeatherActivity extends AppCompatActivity {
+public class WeatherActivity extends BaseActivity {
     public LocationClient mLocationClient;
     String currentLocation;
     public  static List<CityItem> cityList=new ArrayList<>();//List
@@ -168,6 +168,7 @@ public class WeatherActivity extends AppCompatActivity {
             }
             else{
                 Log.d("直接打开","没缓存");
+                initLocation();
                 if(mLocationClient.isStarted()==true){
                     Log.d("定位进入",String.valueOf(mLocationClient.isStarted()));
                     mLocationClient.restart();
@@ -198,10 +199,13 @@ public class WeatherActivity extends AppCompatActivity {
                     ActivityCompat.requestPermissions(WeatherActivity.this, permisssionArray, 1);//第二个参数为字符串类型数组，集体请求权限
                 }
                 else {
+                    initLocation();
                     if (mLocationClient.isStarted() == false) {
                         mLocationClient.start();
+                        Log.d("手动定位","开启定位");
                     } else {
                         mLocationClient.restart();
+                        Log.d("手动定位","重启定位");
                     }
                 }
             }
@@ -295,10 +299,12 @@ public class WeatherActivity extends AppCompatActivity {
             currentPosition.append(bdLocation.getLongitude()).append(",");
             currentPosition.append(bdLocation.getLatitude());
             String street=bdLocation.getStreet();
+
             int code=bdLocation.getLocType();
             currentLocation=currentPosition.toString();
             if(street!=null) {
                 requestWeather(currentLocation, street);
+                Log.d("street",street);
             }
             else{
                 requestWeather(currentLocation, " ");
@@ -306,6 +312,7 @@ public class WeatherActivity extends AppCompatActivity {
             status.setText("已定位");
             Log.d("current",currentLocation);
             Log.d("code",String.valueOf(code));
+            //Toast.makeText(WeatherActivity.this, String.valueOf(code), Toast.LENGTH_SHORT).show();
             //Log.d("street",bdLocation.getStreet());
         }
     }
@@ -381,24 +388,24 @@ public class WeatherActivity extends AppCompatActivity {
     //请求天气信息并存入citylist以及更新cityItem表
     public void requestWeather(String weather_id,final String street){
         final String weatherUrl="https://free-api.heweather.com/s6/weather?Location="+weather_id+"&key=3dfc4d571ef14fcf8879969c874572fa";
-        Log.d("URL",weatherUrl);
+        //Toast.makeText(WeatherActivity.this, weather_id, Toast.LENGTH_LONG).show();
         HttpUtil.sendOkHttpRequest(weatherUrl, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
-                WeatherActivity.this.runOnUiThread(new Runnable() {
+                Toast.makeText(WeatherActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                /*WeatherActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         Toast.makeText(WeatherActivity.this, "获取天气信息失败", Toast.LENGTH_SHORT).show();
                         //Log.d("fail:","12345");
                         swipe_refresh.setRefreshing(false);//请求后隐藏刷新图标
                     }
-                });
+                });*/
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                //Log.d("进入","旋转");
+                Log.d("SUCCESS","12345");
                 final String  responseText=response.body().string();//获取response字符串
                final HeWeather weather=Utility.handleWeatherResponse(responseText);
                 WeatherActivity.this.runOnUiThread(new Runnable() {
@@ -457,7 +464,7 @@ public class WeatherActivity extends AppCompatActivity {
                             showWeatherInfo(weather,street);
                         }
                         else{
-                            Toast.makeText(WeatherActivity.this, "获取天气信息失败", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(WeatherActivity.this, "获取天气信息失败!", Toast.LENGTH_SHORT).show();
                            // Log.d("win:",weather.status);
                         }
                         Log.d("关闭","旋转");
